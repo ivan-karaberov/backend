@@ -16,3 +16,8 @@ def save_data(data: str = Body(embed=True)) -> None:
     with open('data.txt', 'a') as file:
         file.write(data+"\n")
 
+
+@app.get("/data")
+def get_data() -> str:
+    with open('data.txt', 'r') as file:
+        return file.read()
